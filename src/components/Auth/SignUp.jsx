@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import background from '../../assets/bg.png';
 import { Link, useNavigate } from "react-router-dom";
-const backendUrl = 'http://localhost:5000';
+const backendUrl = import.meta.env.VITE_APP_BACKEND_URL;
 
 const SignUp = () => {
     const [username, setUsername] = useState("");

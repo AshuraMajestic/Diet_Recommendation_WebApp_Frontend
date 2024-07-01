@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import background from '../../assets/bg.png'
 import { Link, useNavigate } from "react-router-dom";
-
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -11,7 +10,7 @@ export default function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            let result = await fetch(`http://localhost:5000/login`, {
+            let result = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/login`, {
                 method: 'POST',
                 body: JSON.stringify({ email, password }),
                 headers: { 'Content-Type': 'application/json' }
