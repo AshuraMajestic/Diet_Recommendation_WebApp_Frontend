@@ -10,6 +10,7 @@ import dietBlog3 from '../../assets/diet_blog3.jpg';
 import dietBlog4 from '../../assets/diet_blog4.jpg';
 import dietBlog5 from '../../assets/diet_blog5.jpg';
 import dietBlog6 from '../../assets/diet_blog6.jpg';
+
 const backendUrl = import.meta.env.VITE_APP_BACKEND_URL;
 const Diet = () => {
     const [activeFilter, setActiveFilter] = useState('all');
@@ -99,33 +100,33 @@ const Diet = () => {
 
     return (
         <section className="diet" id="diet">
-            <h1 className="heading">Diet Plan</h1>
-            <ul className="controls">
+            <h1 className="heading text-5xl font-sans font-bold mb-8 text-center text-[#29d978]">Diet Plan</h1>
+            <ul className="controls  grid grid-cols-4 gap-6 list-none">
                 {filters.map(filter => (
                     <li
                         key={filter.name}
-                        className={`buttons ${activeFilter === filter.name ? 'active' : ''}`}
+                        className={`buttons cursor-pointer px-2 py-3 bg-white mb-3 text-center rounded-2xl ${activeFilter === filter.name ? 'active' : ''}`}
                         onClick={() => handleFilterClick(filter.name)}
                     >
-                        <img src={filter.img} alt={filter.name} />
-                        <h3>{filter.name}</h3>
+                        <img src={filter.img} className='h-16' alt={filter.name} />
+                        <h3 className='p-4 text-2xl text-[#666]'>{filter.name}</h3>
                     </li>
                 ))}
             </ul>
 
             {filteredFoodItems.length > 0 && (
-                <div className="food-items image-container">
+                <div className="food-items image-container grid grid-cols-4 gap-6">
                     {filteredFoodItems.map((item, index) => (
-                        <div className="box" key={item._id}>
-                            <div className="image">
-                                <img src={blogImages[index % blogImages.length]} alt={`Blog Image ${index + 1}`} />
+                        <div className="box bg-white rounded-2xl overflow-hidden" key={item._id}>
+                            <div className="image h-[25rem] overflow-hidden w-full">
+                                <img className='h-full w-full object-cover' src={blogImages[index % blogImages.length]} alt={`Blog Image ${index + 1}`} />
                             </div>
-                            <div className="content">
-                                <a href={`/food/${item._id}`} className="link">{item.food_items}</a>
-                                <p>Calories: {item.Calories}</p>
-                                <div className="icon">
-                                    <span><i className="fas fa-clock"></i> 11 June, 2023</span>
-                                    <span><i className="fas fa-user"></i> by admin</span>
+                            <div className="content p-4">
+                                <a href={`/food/${item._id}`} className="link text-3xl text-[#29d978]">{item.food_items}</a>
+                                <p className='text-lg py-4 text-[#666]'>Calories: {item.Calories}</p>
+                                <div className="icon pt-4 flex items-center  justify-between">
+                                    <span className='text-sm text-[#666] hover:text-[#29d978] cursor-pointer'><i className="fas fa-clock pr-sm"></i> 11 June, 2023</span>
+                                    <span className='text-sm text-[#666] hover:text-[#29d978] cursor-pointer'><i className="fas fa-user pr-sm"></i> by admin</span>
                                 </div>
                             </div>
                         </div>

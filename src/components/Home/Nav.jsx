@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from "../../assets/logo.svg";
 
 export default function Nav() {
@@ -13,28 +13,14 @@ export default function Nav() {
     const closeMenu = () => {
         setIsMenuOpen(false);
     };
-    const scrollToAbout = () => {
-        const aboutSection = document.getElementById('about');
-        if (aboutSection) {
-            aboutSection.scrollIntoView({ behavior: 'smooth' });
-            closeMenu(); // Close the menu after scrolling
-        }
-    };
-    const logout = () => {
 
-        localStorage.removeItem('userId');
-        localStorage.removeItem('user');
-        localStorage.removeItem('token');
 
-        // Reload the page to clear state and reset application
-        window.location.reload();
-    };
 
     return (
-        <header className="shadow-lg  w-full" style={{ zIndex: 1000 }}>
+        <header className="shadow-lg fixed top-0 w-full bg-[#f0fff7]" style={{ zIndex: 1000 }}>
             <div className="container mx-auto flex items-center h-24 px-4 md:px-0">
-                <a href="/" className="flex items-center justify-center">
-                    <img className="h-16" src={logo} alt="Ashura Blogs Logo" />
+                <a href="/" className="flex items-center justify-center" onClick={closeMenu}>
+                    <img className="h-20" src={logo} alt="Full Belly Logo" />
                     <span className="ml-4 logo-Text uppercase font-black">Full<br />Belly</span>
                 </a>
                 <div className="flex items-center ml-auto md:hidden">
@@ -44,58 +30,48 @@ export default function Nav() {
                         </svg>
                     </button>
                 </div>
-                <nav className={`fixed top-0 right-0  h-full w-4/5 p-4 flex flex-col items-center justify-center transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform md:contents font-semibold text-base lg:text-lg md:static md:flex-row md:bg-transparent md:transform-none`}>
+                <nav className={`fixed top-0 right-0 bg-[#f0fff7] h-full w-4/5 p-4 flex flex-col items-center justify-center transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform md:contents font-semibold text-base lg:text-lg md:static md:flex-row md:bg-transparent md:transform-none`}>
                     <button onClick={closeMenu} className="absolute top-4 right-4  focus:outline-none md:hidden">
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
                     </button>
-                    <ul className="flex flex-col items-center md:flex-row md:ms-auto">
-                        <li className={`p-5 xl:p-8`}>
-                            <NavLink to="/" onClick={closeMenu}>
+                    <ul className="flex flex-col items-center md:flex-row md:ml-auto">
+                        <li className={`p-5 xl:p-4 `}>
+                            <Link to="/" className='text-[#29d978]' onClick={closeMenu}>
                                 <span>Home</span>
-                            </NavLink>
+                            </Link>
                         </li>
-                        <li className={`p-5 xl:p-8`}>
-                            <a href="#about">
+                        <li className={`p-5 xl:p-4`}>
+                            <a href="#about" className='text-[#29d978]' onClick={closeMenu}>
                                 <span>About</span>
                             </a>
                         </li>
-                        <li className={`p-5 xl:p-8`}>
-                            <a href="#services">
+                        <li className={`p-5 xl:p-4`}>
+                            <a href="#services" className='text-[#29d978]' onClick={closeMenu}>
                                 <span>Services</span>
                             </a>
                         </li>
-                        <li className={`p-5 xl:p-8`}>
-                            <a href="#diet">
+                        <li className={`p-5 xl:p-4`}>
+                            <a href="#diet" className='text-[#29d978]' onClick={closeMenu}>
                                 <span>Diet</span>
                             </a>
                         </li>
-                        <li className={`p-5 xl:p-8`}>
-                            <a href="#review">
+                        <li className={`p-5 xl:p-4`}>
+                            <a href="#review" className='text-[#29d978]' onClick={closeMenu}>
                                 <span>Review</span>
                             </a>
                         </li>
-                        <li className={`p-5 xl:p-8`}>
-                            <a href="#newsletter">
-                                <span>Newsletter</span>
-                            </a>
-                        </li>
-                        <li className={`p-5 xl:p-8`}>
-                            <a href="#footer">
-                                <span>Footer</span>
-                            </a>
-                        </li>
-                        <li className={`p-5 xl:p-8`}>
-                            <button onClick={logout} className="focus:outline-none">
+
+                        <li className={`p-5 xl:p-4`}>
+                            <button className="focus:outline-none text-[#29d978]">
                                 <span>Logout</span>
                             </button>
                         </li>
-
                     </ul>
-
                 </nav>
             </div>
         </header>
+
     );
 }
