@@ -10,7 +10,7 @@ import dietBlog3 from '../../assets/diet_blog3.jpg';
 import dietBlog4 from '../../assets/diet_blog4.jpg';
 import dietBlog5 from '../../assets/diet_blog5.jpg';
 import dietBlog6 from '../../assets/diet_blog6.jpg';
-
+const backendUrl = import.meta.env.VITE_APP_BACKEND_URL;
 const Diet = () => {
     const [activeFilter, setActiveFilter] = useState('all');
     const [filteredFoodItems, setFilteredFoodItems] = useState([]);
@@ -27,7 +27,7 @@ const Diet = () => {
 
     const fetchUserData = async (userId) => {
         try {
-            const response = await fetch(`http://localhost:5000/users/${userId}`);
+            const response = await fetch(`${backendUrl}/users/${userId}`);
             const data = await response.json();
             if (response.ok) {
                 setUser(data); // Set user data in state
