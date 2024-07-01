@@ -33,7 +33,7 @@ const Diet = () => {
                 setUser(data); // Set user data in state
 
                 // Constructing the fetch POST request for food items
-                const foodItemsUrl = 'http://localhost:5000/food-items';
+                const foodItemsUrl = `${backendUrl}/food-items`;
                 const foodItemsPayload = {
                     weight: data.weight,
                     height: data.height,
@@ -71,7 +71,7 @@ const Diet = () => {
     const fetchFoodItems = async () => {
         try {
 
-            const foodItemsUrl = 'http://localhost:5000/all-food-item';
+            const foodItemsUrl = `${backendUrl}/all-food-item`;
             const response = await fetch(foodItemsUrl);
             if (response.ok) {
                 const filteredFoodItems = await response.json();
