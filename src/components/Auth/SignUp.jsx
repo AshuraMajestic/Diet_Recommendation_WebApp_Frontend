@@ -40,15 +40,6 @@ const SignUp = () => {
             if (response.ok) {
                 localStorage.setItem('userId', data.userId);
                 localStorage.setItem('token', data.token);
-                setEmail("");
-                setPassword("");
-                setPhone("");
-                setUsername("");
-                setWeight("");
-                setHeight("");
-                setAge("");
-                setGender("");
-                setActivityLevel("");
                 navigate("/");
             } else {
                 console.log("Registration failed:", data.message);
