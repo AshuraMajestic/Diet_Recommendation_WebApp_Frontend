@@ -36,9 +36,9 @@ export default function Footer() {
                     <h3 className='text-2xl capitalize py-6 text-[#29d978] '>follow us</h3>
                     <a className='text-sm capitalize text-black py-4' href="#"> <i className="fab fa-facebook-f text-[#29d978] pr-2"></i>facebook</a>
                     <a className='text-sm capitalize text-black py-4' href="#"> <i className="fab fa-twitter text-[#29d978] pr-2"></i>twitter</a>
-                    <a className='text-sm capitalize text-black py-4' href="#"> <i className="fab fa-instagram text-[#29d978] pr-2"></i>instagram</a>
-                    <a className='text-sm capitalize text-black py-4' href="#"> <i className="fab fa-linkedin text-[#29d978] pr-2"></i>linkedin</a>
-                    <a className='text-sm capitalize text-black py-4' href="#"> <i className="fab fa-github text-[#29d978] pr-2"></i>github</a>
+                    <a className='text-sm capitalize text-black py-4' href="https://www.instagram.com/bhagat.345/"> <i className="fab fa-instagram text-[#29d978] pr-2"></i>instagram</a>
+                    <a className='text-sm capitalize text-black py-4' href="https://www.linkedin.com/in/kharade-vishal-b-466335304/"> <i className="fab fa-linkedin text-[#29d978] pr-2"></i>linkedin</a>
+                    <a className='text-sm capitalize text-black py-4' href="https://github.com/AshuraMajestic"> <i className="fab fa-github text-[#29d978] pr-2"></i>github</a>
                 </div>
 
             </div>
