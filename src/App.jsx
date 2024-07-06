@@ -17,7 +17,6 @@ function App() {
         <Routes>
           <Route element={<PrivateComponent />}>
             <Route path='/' element={<Home />} />
-
             <Route path='/admin' element={<AdminDashboard />} />
           </Route>
           <Route path='/signup' element={<SignUp />} />

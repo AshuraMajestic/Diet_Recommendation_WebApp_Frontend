@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import logo from "../../assets/logo.svg";
 
 export default function Nav() {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+    const navigate = useNavigate();
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
@@ -13,7 +14,12 @@ export default function Nav() {
     const closeMenu = () => {
         setIsMenuOpen(false);
     };
-
+    const handleLogout = () => {
+        // Clear authentication token (adjust according to your authentication method)
+        localStorage.removeItem('user');
+        localStorage.removeItem('token');
+        navigate('/login');
+    };
 
 
     return (

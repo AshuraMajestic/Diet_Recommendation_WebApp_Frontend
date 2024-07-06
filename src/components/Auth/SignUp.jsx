@@ -38,25 +38,14 @@ const SignUp = () => {
             const data = await response.json();
 
             if (response.ok) {
-                localStorage.setItem('userId', data.userId);
+                localStorage.setItem('user', data.userId);
                 localStorage.setItem('token', data.token);
-                setEmail("");
-                setPassword("");
-                setPhone("");
-                setUsername("");
-                setWeight("");
-                setHeight("");
-                setAge("");
-                setGender("");
-                setActivityLevel("");
                 navigate("/");
             } else {
                 console.log("Registration failed:", data.message);
-                // Handle registration failure (e.g., show error message to user)
             }
         } catch (err) {
             console.error('Error registering user:', err);
-            // Handle network errors or other exceptions
         }
     };
 
